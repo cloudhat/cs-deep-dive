@@ -1,6 +1,5 @@
 def findlocal1D(arr):
     """
-    - O(log len(arr))
     - T(n) = T(n/2) + Θ(1), 이때 Θ(1)은 양쪽 확인하는 작업
     - base case : T(1) = Θ(1)
     => Θ(log2n)
@@ -21,6 +20,12 @@ def findlocal1D(arr):
 
 
 def findlocal2D(matrix):
+    """
+    n 개의 행, m개의 열
+    T(n,m) = T(n/2,m) + Θ(m), 이때 Θ(m)은 행의 최댓값 확인하는 작업
+    - base case : T(1,m) = Θ(m)
+    => Θ(m log n)
+    """
     n = len(matrix[0]) # 세로 길이 
     
     mid_row = matrix[n//2] # 가운데 행
