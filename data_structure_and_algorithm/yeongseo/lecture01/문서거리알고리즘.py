@@ -3,7 +3,7 @@
 # 1
 import math
 
-def get_words(doc):
+def get_words(doc): 
     words = []
 
     word= ""
@@ -18,7 +18,7 @@ def get_words(doc):
     return words
 
 # 2
-def count(words):
+def count(words): 
     count = {}
     for word in words:
         if word in count:
