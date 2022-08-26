@@ -23,30 +23,19 @@ def max_heapify(A, largest):
     if i != largest:
         A[i-1], A[largest-1] = A[largest-1], A[i-1]
         max_heapify(A, largest)
-    print(A, largest)
     
 a = [16,4,10,14,7,9,3,2,8,1]
-print(max_heapify(a,2))
 
-##은지1
-# def max_heapify(A, largest):
-    
-#     i = largest
-#     l = i*2
-#     r = l+1
-    
-#     if l <= len(A) and A[l-1] > A[i-1]:
-#         largest = l
-#         print(f'lllargest:{largest}')
+# Build_Max_Heap(A):
+# for i=n/2 downto 1
+# do Max_Heapify(A, i)
 
-#     if r <= len(A) and A[r-1] > A[i-1]:
-#         largest = r
-#         print(f'rrlargest:{largest}')
-        
-#     if i != largest:
-#         A[i-1], A[largest-1] = A[largest-1], A[i-1]
-#         max_heapify(A, largest)
-#     print(A, largest)
+# 왜 n/2 부터 시작할까?
+# 왜냐하면 요소 A[n/2 + 1 … n] 들이 트리의 모든 단말
+# 2i > n, for i > n/2 + 1 
 
-def built_max_heap():
-    pass
+def built_max_heap(A):
+    for i in range(len(A),1,-1):
+        max_heapify(A,i)
+
+print(built_max_heap(a))
