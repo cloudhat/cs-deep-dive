@@ -1,38 +1,26 @@
-def insertion_sort(arr):
-    for end in range(1, len(arr)):
-        for i in range(end, 0, -1):
-            if arr[i - 1] > arr[i]:
-                arr[i - 1], arr[i] = arr[i], arr[i - 1]
+# 그 루트의 서브 트리에서 힙 특성을 위반한 걸 한 가지 고친다.
+def max_heapify(heap, i):
+    left      = 2*i
+    right     = 2*i+1
+    largest   = i
 
-def merge_sort(arr):
-	if len(arr) > 1:
-		mid = len(arr)//2
-		left_array = arr[:mid]
-		right_array = arr[mid:]
-		merge_sort(left_array)
-		merge_sort(right_array)
+    if left <= len(heap) and heap[left-1] > heap[i-1]:
+        largest = left
 
-		i = j = k = 0
+    if right <= len(heap) and heap[right-1] > heap[largest-1]:
+        largest = right
+    
+    if largest != i:
+        heap[i-1], heap[largest-1] = heap[largest-1], heap[i-1]
+        max_heapify(heap, largest)
+    
+# 정렬 되지 않은 배열로부터 최대-힙을 만든다.
+def build_max_heap(heap):
+    i = len(heap)//2
+    for num in range(i, 0, -1):
+        max_heapify(heap, num)
 
-		while i < len(left_array) and j < len(right_array):
-			if left_array[i] < right_array[j]:
-				arr[k] = left_array[i]
-				i += 1
-			else:
-				arr[k] = right_array[j]
-				j += 1
-			k += 1
-
-		while i < len(left_array):
-			arr[k] = left_array[i]
-			i += 1
-			k += 1
-
-		while j < len(right_array):
-			arr[k] = right_array[j]
-			j += 1
-			k += 1
-
-arr = [42, 12, 11, 13, 5, 6, 7, 188, 43, 1, 79]
-merge_sort(arr)
-print(arr)
+a = [16,4,10,14,7,9,3,2,8,1]
+# max_heapify(a, 2)
+build_max_heap(a)
+print(a)
