@@ -101,9 +101,6 @@ class BST():
                     else:
                         max_left.parent.right = max_left.left
              
-                
-
-
     def print_inorder(self, root):
 
         if root.left is not None: # root 왼쪽모두 출력
