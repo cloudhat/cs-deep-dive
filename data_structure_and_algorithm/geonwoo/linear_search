@@ -1,0 +1,11 @@
+def linearsearch(element, list):
+    for i in range(len(list)):
+        if element == list[i]:
+            return i
+    return None
+
+print(linearsearch(2, [2, 3, 5, 7, 11]))
+print(linearsearch(0, [2, 3, 5, 7, 11]))
+print(linearsearch(5, [2, 3, 5, 7, 11]))
+print(linearsearch(3, [2, 3, 5, 7, 11]))
+print(linearsearch(11, [2, 3, 5, 7, 11]))
